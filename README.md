@@ -5,13 +5,22 @@
 
 ###Part 2: Pizza.html
 ####How to Use
-- Open the frontend-nanodegree-mobile-portfolio folder  
-- Within the views folder, find pizza.html and open it in a browser
-- Wait for the page to load, then scroll it up and down to see the improved frame rate
+- Download the frontend-nanodegree-mobile-portfolio if you haven't already. 
+- Open the frontend-nanodegree-mobile-portfolio folder. 
+- Within the views folder, find pizza.html and open it in a browser.
+- Wait for the page to load, then scroll up and down to see the improved frame rate.
+- Compare to the original (in _original > views > pizza.html) to see the exact effect the optimizations have had.
 
 ####Optimizations Used
 
-  - ![Before any optimizations](_optimization_results/pizza_00_original.png)
+  ![Original](_optimization_results/pizza_00_original.png "The original version without any improvements")
+  ![Optimization 1](_optimization_results/pizza_01_getElementsByClassName.png "Changed querySelectorAll to getElementsByClass in updatePositions")
+  ![Optimization 2](_optimization_results/pizza_02_saveScrollTop.png "Pulled scrollTop out of loop and saved to a variable")
+  ![Optimization 3](_optimization_results/pizza_03_translateX.png "Tried translateX instead of changing the left property of the pizzas")
+  ![Optimization 4](_optimization_results/pizza_04_translateZ.png "Added a null transform to get the pizzas onto their own composite layers")
+  ![Optimization 5](_optimization_results/pizza_05_throttleScroll.png "Had seen advice against attaching page changes to scroll event, so gave throttling a try")
+  ![Optimization 6](_optimization_results/pizza_06_reduce_pizzas.png "Reduced number of pizzas significantly")
+  ![Optimization 7](_optimization_results/pizza_07_smallerPizza.png "Made small pizzas instead of scaling with CSS")
   - Pulling variables out of loops
   - Reducing number of pizzas
   - getElementsByClass instead of querySelectorAll
