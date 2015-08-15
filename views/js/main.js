@@ -491,7 +491,7 @@ function updatePositions() {
 
   /*
   *******************
-  Optimization: save the pizzas into an array for quicker reference
+  Optimization: getElementsByClassName instead of querySelectorAll
   *******************
   */
   var items = document.getElementsByClassName('mover');
