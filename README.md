@@ -13,13 +13,28 @@
 
 ####Optimizations Used
 
+The original version without any improvements
   ![Original](_optimization_results/pizza_00_original.png "The original version without any improvements")
+
+Changed querySelectorAll to getElementsByClass in updatePositions
   ![Optimization 1](_optimization_results/pizza_01_getElementsByClassName.png "Changed querySelectorAll to getElementsByClass in updatePositions")
+
+Pulled scrollTop out of loop and saved to a variable
   ![Optimization 2](_optimization_results/pizza_02_saveScrollTop.png "Pulled scrollTop out of loop and saved to a variable")
+
+Tried translateX instead of changing the left property of the pizzas
   ![Optimization 3](_optimization_results/pizza_03_translateX.png "Tried translateX instead of changing the left property of the pizzas")
+
+Added a null transform to get the pizzas onto their own composite layers
   ![Optimization 4](_optimization_results/pizza_04_translateZ.png "Added a null transform to get the pizzas onto their own composite layers")
+
+Had seen advice against attaching page changes to scroll event, so gave throttling a try
   ![Optimization 5](_optimization_results/pizza_05_throttleScroll.png "Had seen advice against attaching page changes to scroll event, so gave throttling a try")
+
+Reduced number of pizzas significantly
   ![Optimization 6](_optimization_results/pizza_06_reduce_pizzas.png "Reduced number of pizzas significantly")
+
+Made small pizzas instead of scaling with CSS
   ![Optimization 7](_optimization_results/pizza_07_smallerPizza.png "Made small pizzas instead of scaling with CSS")
   - Pulling variables out of loops
   - Reducing number of pizzas
