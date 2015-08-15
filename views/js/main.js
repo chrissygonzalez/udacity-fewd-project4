@@ -489,14 +489,26 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  // saving all the pizzas into an array for quicker reference
+  /*
+  *******************
+  Optimization: save the pizzas into an array for quicker reference
+  *******************
+  */
   var items = document.getElementsByClassName('mover');
 
-  // pulling the scrollTop calc outside of loop
+  /*
+  *******************
+  Optimization: pull the scrollTop calc outside of loop and save as variable
+  *******************
+  */
   var top = (document.body.scrollTop / 1250);
 
-  // translateZ(0) from
-  // http://addyosmani.com/blog/be-careful-when-using-null-transform-hacks-to-force-gpu-acceleration/
+  /*
+  *******************
+  Optimizations: translateX instead of left property to avoid layout,
+  translateZ(0) hack to create new composite layer
+  *******************
+  */
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin(top + (i % 5));
     var left = -items[i].basicLeft + 1000 * phase + 'px';
@@ -513,7 +525,11 @@ function updatePositions() {
   }
 }
 
-// throttle scroll event using example on MDN scroll event page
+/*
+*******************
+Optimization: throttle scroll event using example on MDN scroll event page
+*******************
+*/
  (function() {
     var throttle = function(type, name, obj) {
         var obj = obj || window;
@@ -538,6 +554,12 @@ window.addEventListener("optimizedScroll", function() {
 });
 
 // Generates the sliding pizzas when the page loads.
+
+/*
+*******************
+Optimizations: reduce # of pizzas, resize pizza image and remove height/width styles
+*******************
+*/
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 300;
@@ -545,8 +567,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza_100.png";
-    //elem.style.height = "100px";
-    //elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
