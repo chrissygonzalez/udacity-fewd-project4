@@ -11,7 +11,7 @@
 
 ####Optimizations Used
 
-  - [Before any optimizations](_optimization_results/pizza_00_original.png)
+  - ![Before any optimizations](_optimization_results/pizza_00_original.png)
   - Pulling variables out of loops
   - Reducing number of pizzas
   - getElementsByClass instead of querySelectorAll
