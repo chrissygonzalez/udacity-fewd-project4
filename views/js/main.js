@@ -436,6 +436,15 @@ var resizePizzas = function(size) {
     }
 
   // Iterates through pizza elements on the page and changes their widths
+
+/*
+*******************
+Optimizations:
+1. getElementsByClassName instead of querySelectorAll
+2. save reference to the pizzaContainers and pull out of loop
+3. delete determineDx function and use sizeSwitcher to set % size instead
+*******************
+*/
   function changePizzaSizes(size) {
     var pizzaContainers = document.getElementsByClassName('randomPizzaContainer');
 

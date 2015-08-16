@@ -3,7 +3,21 @@
 ####Still to do
 - use a build tool to minify CSS, JS, and optimize images
 
-###Part 2: Pizza.html
+###Part 2a: Pizza.html Pizza Resizing
+####How to Use
+- Download or clone this repository if you haven't already. 
+- Open the frontend-nanodegree-mobile-portfolio folder. 
+- Within the views folder, find pizza.html and open it in a browser.
+- Wait for the page to load, then use the slider to make the pizzas bigger or smaller.
+- Open the console (in developer tools) and observe the 'Time to resize pizzas'. On my machine, the optimized version takes around 0.42ms.
+- Compare to the original (in _original > views > pizza.html). On my machine, the original takes around 84.64ms to resize pizzas.
+
+####Optimizations Used
+- Changed querySelectorAll to getElementsByClassNam.
+- Saved reference to the pizzaContainers instead of searching for them within the loop.
+- Deleted the whole determineDx function and used sizeSwitcher to set percentage size for the pizzas instead.
+
+###Part 2b: Pizza.html Scrolling
 ####How to Use
 - Download or clone this repository if you haven't already. 
 - Open the frontend-nanodegree-mobile-portfolio folder. 
@@ -29,7 +43,7 @@ Tried translateX instead of changing the left property of the pizzas. Seems to h
 Added a null transform to get the pizzas onto their own composite layers. Painting speed has slowed down again, but the bars are shorter and seem a little more spaced out.
   ![Optimization 4](_optimization_results/pizza_04_translateZ.png "Added a null transform to get the pizzas onto their own composite layers")
 
-When I was looking for ways to reduce paint time, I saw advice against attaching thingss to the scroll event, since it can fire so frequently. It seemed like throttling and debouncing were the two things to try, so based on examples of both, I chose to throttle. The first time I tried it, it seemed to make a big difference, but I think I made my optimizations in a different order than I did for these screenshots. In this instance, it's hard to tell if it helped.
+When I was looking for ways to reduce paint time, I saw advice against attaching things to the scroll event, since it can fire so frequently. It seemed like throttling and debouncing were the two things to try, so based on examples of both, I chose to throttle. The first time I tried it, it seemed to make a big difference, but I think I made my optimizations in a different order than I did for these screenshots. In this instance, it's hard to tell if it helped.
   ![Optimization 5](_optimization_results/pizza_05_throttleScroll.png "Had seen advice against attaching page changes to scroll event, so gave throttling a try")
 
 Reduced number of pizzas significantly. I originally did this earlier in the process and was still left with the big green bars that led me to try other optimizations. But at any point in the process, reducing pizzas made a huge improvement.
@@ -41,9 +55,9 @@ Made small pizzas instead of scaling with CSS. This just seemed like a good idea
 
 ####Resources Used
 Besides the class lectures, here are some of the ways I figured out what improvements could or should be made.
-[The Read Me provided in the original files](https://github.com/udacity/frontend-nanodegree-mobile-portfolio)
-[Discussion forum post](https://discussions.udacity.com/t/stuck-with-painting-and-composition-optimizations/19427/7)
-[Office hours suggestions](https://github.com/udacity/fend-office-hours/tree/master/Web%20Optimization/Effective%20Optimizations%20for%2060%20FPS)
-[MDN scroll event](https://developer.mozilla.org/en-US/docs/Web/Events/scroll)
-[Transform article on CSS Tricks](https://css-tricks.com/almanac/properties/t/transform/)
-[Null transform hack](http://addyosmani.com/blog/be-careful-when-using-null-transform-hacks-to-force-gpu-acceleration/)
+- [The Read Me provided in the original files](https://github.com/udacity/frontend-nanodegree-mobile-portfolio)
+- [Discussion forum post](https://discussions.udacity.com/t/stuck-with-painting-and-composition-optimizations/19427/7)
+- [Office hours suggestions](https://github.com/udacity/fend-office-hours/tree/master/Web%20Optimization/Effective%20Optimizations%20for%2060%20FPS)
+- [MDN scroll event](https://developer.mozilla.org/en-US/docs/Web/Events/scroll)
+- [Transform article on CSS Tricks](https://css-tricks.com/almanac/properties/t/transform/)
+- [Null transform hack](http://addyosmani.com/blog/be-careful-when-using-null-transform-hacks-to-force-gpu-acceleration/)
