@@ -1,7 +1,36 @@
 # Project 4
 ###Part 1: PageSpeed Insights
-####Still to do
-- use a build tool to minify CSS, JS, and optimize images
+####How to Use
+- Download or clone this repository. 
+- Start a web server and run the site on a local server.
+- Use ngrok to make the local server available as an outside url.
+- If you don't have Grunt installed, install it and then install the grunt-pagespeed plugin.
+- Add grunt-pagespeed to the Gruntfile.
+- Run grunt-pagespeed on the ngrok url by typing 'grunt pagespeed' in the terminal.
+
+####Optimizations Used
+- Moved CSS to the head of index.html to minimize external resources
+- Used the Javascript code from Google Fonts to include fonts asynchronously
+- Added 'async' to Google Analytics script tag
+- Included perfmatter.js in head
+- Reduced physical size of images and optimized to smallest size possible
+- Minified HTML
+
+The original version without any improvements.
+![Original](_optimization_results/index_00_original.png "The original version without any improvements")
+
+The optimized version often scores above 90.
+![Original](_optimization_results/pizza_01_optimized.png "The optimized version often scores above 90")
+
+####Resources Used
+-[Getting started with Grunt](http://gruntjs.com/getting-started)
+-[Small Grunts](https://corner.squareup.com/2013/08/small-grunts.html)
+-[Setting up PageSpeed for Gulp](http://una.im/gulp-local-psi/#💁)
+-[Automating Web Performance](https://developers.google.com/web/updates/2014/06/Automating-Web-Performance-Measurement?hl=en)
+-[grunt-pagespeed on GitHub](https://github.com/jrcryer/grunt-pagespeed)
+-[psi on GitHub](https://github.com/addyosmani/psi/)
+-[Load Google Fonts Asynchronously](http://www.lockedowndesign.com/load-google-fonts-asynchronously-for-page-speed/)
+
 
 ###Part 2a: Pizza.html Pizza Resizing
 ####How to Use
@@ -13,7 +42,7 @@
 - Compare to the original (in _original > views > pizza.html). On my machine, the original takes around 84.64ms to resize pizzas.
 
 ####Optimizations Used
-- Changed querySelectorAll to getElementsByClassNam.
+- Changed querySelectorAll to getElementsByClassName.
 - Saved reference to the pizzaContainers instead of searching for them within the loop.
 - Deleted the whole determineDx function and used sizeSwitcher to set percentage size for the pizzas instead.
 
@@ -34,7 +63,7 @@ The original version without any improvements.
 This is the result of changing querySelectorAll to getElementsByClass in updatePositions. It seems pretty similar to the original, but the bars after the really tall ones do get shorter.
   ![Optimization 1](_optimization_results/pizza_01_getElementsByClassName.png "Changed querySelectorAll to getElementsByClass in updatePositions")
 
-Pulled scrollTop out of loop and saved to a variable, which made a huge difference in scripting and rendering. Quite a lot of green, especially with faster scrolling (this shows a fairly slow scroll).
+Pulled scrollTop out of loop and saved to a variable, which made a huge difference in scripting and rendering. Still quite a lot of green, especially with faster scrolling (this shows a fairly slow scroll).
   ![Optimization 2](_optimization_results/pizza_02_saveScrollTop.png "Pulled scrollTop out of loop and saved to a variable")
 
 Tried translateX instead of changing the left property of the pizzas. Seems to have made things worse if you look at the bars, but the painting time on the pie chart has gone down by about 150ms.
