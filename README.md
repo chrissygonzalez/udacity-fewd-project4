@@ -2,34 +2,37 @@
 ###Part 1: PageSpeed Insights
 ####How to Use
 - Download or clone this repository. 
-- Start a web server and run the site on a local server.
+- Start a web server and run the index page in frontend-nanodegree-mobile-portfolio on a local server.
 - Use ngrok to make the local server available as an outside url.
 - If you don't have Grunt installed, install it and then install the grunt-pagespeed plugin.
 - Add grunt-pagespeed to the Gruntfile.
 - Run grunt-pagespeed on the ngrok url by typing 'grunt pagespeed' in the terminal.
+- This index page usually scores above 90.
+- Compare to the original index file in _original/frontend-nanodegree-mobile-portfolio, which scores in the high 20s.
 
 ####Optimizations Used
-- Moved CSS to the head of index.html to minimize external resources
-- Used the Javascript code from Google Fonts to include fonts asynchronously
-- Added 'async' to Google Analytics script tag
-- Included perfmatter.js in head
-- Reduced physical size of images and optimized to smallest size possible
-- Minified HTML
+- Moved CSS to the head of index.html to minimize external resources.
+- Used the Javascript code from Google Fonts to include Open Sans asynchronously.
+- Added 'async' to Google Analytics script tag to load it asynchronously.
+- Included perfmatter.js in head instead of as external file.
+- Reduced physical size of images and optimized to smallest size possible.
+- Minified HTML.
 
+####Optimization Results
 The original version without any improvements.
 ![Original](_optimization_results/index_00_original.png "The original version without any improvements")
 
 The optimized version often scores above 90.
-![Original](_optimization_results/pizza_01_optimized.png "The optimized version often scores above 90")
+![Original](_optimization_results/index_01_optimized.png "The optimized version often scores above 90")
 
 ####Resources Used
--[Getting started with Grunt](http://gruntjs.com/getting-started)
--[Small Grunts](https://corner.squareup.com/2013/08/small-grunts.html)
--[Setting up PageSpeed for Gulp](http://una.im/gulp-local-psi/#💁)
--[Automating Web Performance](https://developers.google.com/web/updates/2014/06/Automating-Web-Performance-Measurement?hl=en)
--[grunt-pagespeed on GitHub](https://github.com/jrcryer/grunt-pagespeed)
--[psi on GitHub](https://github.com/addyosmani/psi/)
--[Load Google Fonts Asynchronously](http://www.lockedowndesign.com/load-google-fonts-asynchronously-for-page-speed/)
+- [Getting started with Grunt](http://gruntjs.com/getting-started)
+- [Small Grunts](https://corner.squareup.com/2013/08/small-grunts.html)
+- [Setting up PageSpeed for Gulp](http://una.im/gulp-local-psi/#💁)
+- [Automating Web Performance](https://developers.google.com/web/updates/2014/06/Automating-Web-Performance-Measurement?hl=en)
+- [grunt-pagespeed on GitHub](https://github.com/jrcryer/grunt-pagespeed)
+- [psi on GitHub](https://github.com/addyosmani/psi/)
+- [Load Google Fonts Asynchronously](http://www.lockedowndesign.com/load-google-fonts-asynchronously-for-page-speed/)
 
 
 ###Part 2a: Pizza.html Pizza Resizing
@@ -39,7 +42,7 @@ The optimized version often scores above 90.
 - Within the views folder, find pizza.html and open it in a browser.
 - Wait for the page to load, then use the slider to make the pizzas bigger or smaller.
 - Open the console (in developer tools) and observe the 'Time to resize pizzas'. On my machine, the optimized version takes around 0.42ms.
-- Compare to the original (in _original > views > pizza.html). On my machine, the original takes around 84.64ms to resize pizzas.
+- Compare to the original (in _original > frontend-nanodegree-mobile-portfolio > views > pizza.html). On my machine, the original takes around 84.64ms to resize pizzas.
 
 ####Optimizations Used
 - Changed querySelectorAll to getElementsByClassName.
@@ -52,7 +55,7 @@ The optimized version often scores above 90.
 - Open the frontend-nanodegree-mobile-portfolio folder. 
 - Within the views folder, find pizza.html and open it in a browser.
 - Wait for the page to load, then scroll up and down to see the improved frame rate.
-- Compare to the original (in _original > views > pizza.html) and use developer tools to see the exact effect the optimizations have had.
+- Compare to the original (in _original > frontend-nanodegree-mobile-portfolio > views > pizza.html) and use developer tools to see the exact effect the optimizations have had.
 
 ####Optimizations Used
 The optimization process was a long and winding one, and I backed up and moved forward so many times, it was hard to remember what order I tried these in. Here, I'm documenting the effect each optimization had in a top to bottom order (in the code), but I think I probably followed the order recommended in the office hours video and/or the original ReadMe file.
