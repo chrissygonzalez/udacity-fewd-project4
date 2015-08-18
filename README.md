@@ -3,7 +3,7 @@
 ####What Changed?
 - Learned how to minify/include js/css files as part of Grunt workflow.
 - Made suggested code changes from review.
-– Improved commenting style for optimization comments.
+- Improved commenting style for optimization comments.
 
 ####Optimization Results
 PageSpeed results seem to have improved a little.
