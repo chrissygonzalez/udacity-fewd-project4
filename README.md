@@ -1,4 +1,17 @@
 # Project 4
+###Update: v2, based on code review
+####What Changed?
+- Learned how to minify/include js/css files as part of Grunt workflow.
+- Made suggested code changes from review.
+– Improved commenting style for optimization comments.
+
+####Optimization Results
+PageSpeed results seem to have improved a little.
+![Optimization_v2](_optimization_results/index_02_optimized_v2.png "PageSpeed results seem to have improved a little")
+
+Pizza scrolling seems pretty similar.
+![Optimization_v2](_optimization_results/pizza_08_reviewOptimized_v2.png "Pizza scrolling seems pretty similar")
+
 ###Part 1: PageSpeed Insights
 ####How to Use
 - Download or clone this repository. 
